@@ -1,0 +1,4 @@
+print("welcome to the Greeks<> i will give you your horoscope...")
+
+month = input("what month were you born? (1-12):" )
+

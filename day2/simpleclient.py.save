@@ -1,0 +1,18 @@
+import socket
+import socketfuncs
+import sys
+
+
+s = socket.socket()
+
+while True
+
+	talk = input("send message yes or no? : ")
+	if talk == yes:
+		
+s.connect(('100.25.46.133', 10333))
+		socketfuncs.send_message(s, "text message from asian")
+
+
+	else:
+		s.close()

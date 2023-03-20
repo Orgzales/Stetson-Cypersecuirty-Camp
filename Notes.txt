@@ -1,0 +1,324 @@
+
+
+Data controling when open puTTY:
+
+	-ls = show files
+	-ls -a = show hidden
+	-ls -l = show details
+	-ls - la = both ^
+
+	-mkdir = make file
+	-cd = open file
+	-^ = ctrl
+	-nano = open file py.
+
+	-"Python3" infront of the file to run it
+	-right click is copying
+
+	-import sys
+	 sys.exit() = close file  
+
+	-import random
+	 random number = n = random.randint(1,10)
+
+
+
+Networking: 
+
+	-IP Address: "internet protocall" address, every machine on internet has IP
+	-port: a number representing a particular program on a service 
+	-Firewall: protect ports from disallowed IP ranges
+
+Attacks:
+	-Phising: Email that have links for fake login pages
+	-protect yourself: look at the email sender & link
+	-DOs , DDOS: denial of service, distributed denial of service
+	             Mirai botnet
+	-injections: SQL & XSS injections
+		     adding custom code to a website that exploits another person's machine
+	-ransomware: encrypts your data and holds the key ransom
+		     protection by keeping everything backed up
+
+	-Scanning: Finding ports & machines that might be vulnerability
+ 	-Fuzzing: Randomly trying inputs until you get errors or break it
+	-social engineering: misleading people to believe you are IT consultant
+
+	-Rootkits, trojams, viruses
+
+		Rootkits = program that installs itself as root, gets complete control.
+		Trojan = a program that looks safe but actually installs other stuff.
+		Virus = Copies itself all over, propagates from USB drivers, etc.
+
+	-Worms:A program that propagates over the network
+
+
+
+Terms: 
+	"White hat vs. Black hat vs. Gray hat"
+		
+	-White hat = ethical (professional) hacking and cybersecurity work
+	-Black hat = Criminal Hacking
+	-Gary hat = free agent, some black hat and white hat combined
+	
+	-0 day =  new exploit, unknown to the world
+		  the exploit is active at the same time the world discovers the vulnerability
+
+	-10 day exploit = 10 days between announcing & patching the vulnerability and the exploit being found in the wild
+
+        -hashing = compute a number that represents a long message
+		   cannot go backwards, numbers to message ("irreversible")
+
+	-Encryption = using a key, produce an encrypted message
+		      the same key can reverse this (unencrypt it) 
+
+
+
+technologies:
+	-bitcoin: uses hashing & encryption
+	-proxies: routes your traffic through an intermediate machine
+	   	  Tor and dark webs
+		  Vpns  ( Virtual private network ) / encrypted traffic
+	-CVE: Common Vulnerabilites and Exposers
+		
+
+News:
+	-Snowden: Demonstrated that NSA monitored all traffic all the time
+	-Wikileaks: hash ("sign") the leaked documents
+	-Russia "hacking" the election: facebook ads
+	-database leaks: Equalfax, yahoo
+	-Stuxnet: Attackon Iran's nuclear enrichment
+
+
+
+
+
+
+------------------------------
+
+
+.bind = making new port
+	bind(('0.0.0.0', 10333))
+
+
+.listen = time stop, waiting for a connection
+	  .listen(10)
+
+
+
+'127.0.0.1' = local server
+
+
+
+-------------------------------
+Summery:
+	-Encrpytion
+	-key = password
+	-key = public/private pair
+	-trust 
+		-certificate authorities
+	-signing
+	-authentication
+		-username
+		-password
+
+commands:
+	-echo -n "example" md5sum == hash of example
+	-pair pf 2 charaters is a byte
+
+
+
+Logging in / Authentication:
+	- username (have to be unique acrosss people, but probably guessable or even public.) 
+	- password ( not unique across people, a secret only you know )
+
+		-your website's database needs to keep track of:
+			-username
+			-password
+		-what if hackers get our database?:
+			-Don't store passwprds in plain text
+			-store the "hashed" passwords
+			-a hash is a "signature" produced from the password
+			-cannot go backwords from hash to original text
+			-"ONE WAY HASH" == "HASH"
+			-example hashes: md5, sh1, bycrypt
+
+		-how to crack a hash?:
+			- 4-letter lowercase combinations: 26^4 = 35,152
+				-GPU: 1 sec
+			- 8-letter lowercase combinations: 26^8 = 208,827,064,576
+				-GPU: 6.5 seconds
+			- 8-letter lowercase/Uppercase combinations: 52^8 = 53,459,728,531,456
+				-GPU: 1661 second/ 27 mins
+			- 8-letter upper/lower, numbers: 62^8 = 218,340,105,584,896
+				-GPU: 2 hours
+			- 16-letter upper/lower,numbers, symbols: 95^16 = 44.012.666.865.176,569,775,543,775,543,212,890,625
+				-GPU: 44 tirllion years
+
+
+			-GPU: 32,182 MH/s
+	
+Encryption:
+	-encrypt on your side
+	-decrypt on the other side
+	-need a "key" to encrypt/decrypt
+
+Signing:
+	-username
+	-Signature ( unique across people)
+		-public knowledge, can sign in public when requested
+		-people can verify the isnature ( e.g., look at old signatures)
+
+Encrypting so only one person can read it:
+	-encrypt with other person's key
+		-need to be sure you don't know the key!
+		-two keys (public/private key pair)
+
+Trustiong a new website/machine/person:
+	-a trusted party provides a certificate stating the webstire/etc. can be trusted
+		-how to trust tge party that certifies?
+		-your browser and operating system come with premade trust certifactes
+
+
+
+-Example: Banking
+	-authenticTION
+	-encrpytion
+		-public/private key pair
+
+-Example: Hard drive encryption, ransomware
+	-encryption
+
+-Example: signing legal documents
+	-Signature
+3
+-Example: sending secret documents to a certain person
+	-encryption
+		-public/private key pair
+
+
+commands:
+	-import pickle for list saving
+	-for loop = for "value" range(number):
+	-def = new function
+	-elif = else if
+	-{} = empty dictionary
+	-getpass.getpass = do not show what you are typing for a input
+
+
+
+-------------------------------
+
+commands:
+	-sudo journalctl -x | grep "Failed password" | less -s = peole/machine attepmt to hack you
+	
+	-sudo journalctl -x | grep "Failed password" | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+' | sort | sort -n = finding only th IPs
+
+	-sudo journalctl -x | grep "Failed password" | grep -o '[0-9]\+\.[0-9]\+\.[0-9]\+' | sort | uniq -c  | sort -n = only 1 ip each
+
+
+Hashing: one way (not reversible) wat to store passwords (usually)
+
+Encryption: reversible hiding of information; need password ("key") to encrpyt and  decrypt
+	
+	-Symmetric Encryption: same key is used to encrypt & decrpyt
+		-e.g., password-protect documents, zip files, etc.
+		-key must be shared ahead of time (for decrypting)
+		-ALGORITHM: aes
+		
+	-Asymmetric encryption: two keys: public & private (Generated, can also attach a password to key)
+		-one key always undoes the operation of the other
+			-if encrypt with public, you must decrypt with private
+			-if you encrypt with private, you must decrypt with public
+		-key sharing:
+			- you make a public and private key for yourself ( or your Organization or your machine)
+			- keep private one secret (make sure inly admins or whatever can read the file)
+			- public key should be as public as possible (tell everyone)
+			- old public ket is best so people can trust it
+		-two actions can be done with either key:
+			-encrypt a file with the key
+			-sign a file with the key
+			-does not change the file, but adds a signature based on the file contents and the key
+		-use cases: 
+			- 1. prove that you created the file (file contents ares exposed)
+				- sign the file with your private key (since only you have the private key)
+				- everyone else can prove you signed it by "verifying" the signature with your public key
+			- 2. prove that only "joe" can read your file
+				- encrypts the file with "joe's" public key
+				- this way, only "joe" (with his private key) can decrypt
+			- 3. prove you created the file and hide the contents until later
+				- encrypt with your public key & sign with your priavte key aswell
+				- so everyone can verify the signature, but only you can decrypt
+			- 4. prove only "joe" can read your file and that you sent it:
+				- encrypt with "joe's" public key and sign with your private key
+		-Algorithms: RSA, PGP (GPG on Linux)
+
+How to use PGP (GPG) effectively:
+	-make a personal keypair
+	-Publish the public key
+	-Ideally, get others to sign your public key ( better if they're highly trusted i.e., lots of good signatures on their key)
+	-Now, encrypt traffic with each other
+
+major issues with PGP (GPG):
+	- must share keys ahead of time, and gets lot of signatures
+	- lacks forward secrecy, i.e., old messages can be decrypted in future if private key is found later
+
+now consider secure websites:
+	- Issues: can't share keys ahead of time (niether password nor public keys)
+	- Need a way to trusy the website
+
+SSL/TLS technique (i.e., HTTPS)
+	-Creat a public/private key for your website (put the .com address in the "name")
+	-Keep the private key secret and never lose it!
+	-Share this public key with a certificate authority (CA) (DigiCert, Verisign, etc.)
+		- also share your personal info
+	-The CA signs your public key with thier private key, and you download this version of your public key
+	-You configure your webserver to use these keys
+	
+When you visit a secure website:
+	-The website semds it's (signed) public key
+	-Browser vertifies the key matches the URL
+	-Browser vertifies cignatures with pre- installed CA public keys
+	-Browser generates a random number
+	-This random number is shared with the website (Secretly by encrypting with website's pub key)
+	-Now both sides have that number
+	-Then both generate actual passwords from that number
+	-Future communication is encrypted with AES or similar (symmetric) using that passwords
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
